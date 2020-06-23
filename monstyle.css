@@ -8,9 +8,10 @@
 
   --black: #031936;
   --orange: #F35916;
-  --grey: #6C6C6C;
+  --grey: #A0A0A0;
   --blue: #1674F2;
-
+  --less: #F57038;
+  --text: #FAF8D4;
   --bg: #4C4D4F;
   --articl: #3A3A3C;
 }
@@ -25,12 +26,14 @@ body{
 header{
   background : var(--bg) ;
   margin-bottom: 0.5%;
+  margin-left: 5%;
   overflow: hidden;
-  position: fixed;
-  width: 100%;
+  /*position: fixed;*/
+  width: 95%;
   height: 10%;
   top: 0;
-  color: #FFFFFF;
+  color: var(--less);
+  text-align: center;
 
 }
 
@@ -44,15 +47,14 @@ header{
   margin: 0; 
   background: var(--orange);
 
-  height: 90%;
+  height: 100%;
   width: 5%;
   position: fixed;
   z-index: 1;
-  bottom: 0;
+  bottom: 0%;
   left: 0;
   overflow-x: auto;
   padding-top: 5%;
-
   font-size: 1.25vw;*/
 }
 
@@ -61,12 +63,10 @@ header{
   display: block;
   padding: 1em;
   color: black;
-  
-
 }
 
 .menu a:hover {
-  background: #1565C0;
+  background: #A15F44;
 }
 
 .menu a.active {
@@ -91,12 +91,9 @@ footer{
 
 
 h2{
-    color: var(--orange) ;
+  color: var(--less);
 }
 
-p{
-  text-align: justify ;
-}
 
 
 .source{
@@ -104,6 +101,7 @@ p{
 }
 
 article{
+  top: 59%;
     width: 95%;
     /*border: solid 1px #888888 ;*/
     padding : 10px ;
@@ -115,7 +113,8 @@ article{
     background: var(--articl);
 
     margin-left: 5%; /* Same as the width of the menu */
-    margin-top: 4%;
+    margin-top: 0%;
+    text-align: justify ;
 }
 
 
@@ -123,8 +122,19 @@ article{
     box-sizing: border-box;
 }
 
-article img{
-    display : block ;
+
+.fig{
+  display : block ;
     float:right;
     padding: 1%;
+}
+
+#refhdp{
+  margin: 1%;
+  float: right;
+  color: var(--less);
+}
+
+.fig a{
+  color: var(--less);
 }
