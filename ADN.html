@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title> Point de fusion de l'ADN </title>
+  <meta charset="utf-8"/>
+  <script language="javascript">
+    function Compte(ChADN,Base)
+    {
+      var l = ChADN.length;
+      var i;
+      var number;
+      number=0;
+      for(i=0 ; i<=l; i++)
+       {
+        if (ChADN.charAt(i)==Base)
+          {
+            number=number+1;
+          }
+       }
+      return(number);
+    }
+
+    function Wallace(NbAT, NbGC)
+    {
+      var Tm;
+      Tm = 8 + 2*(NbAT) + 4*(NbGC);
+      return(Tm);
+    }
+
+    function Howley(pGC,nbbases)
+    {
+      var Tm;
+      Tm = 67.5 + (0.34*pGC)-(395/nbbases);
+      return(Tm);
+    }
+
+    function CalculTemp()
+    {
+      var chaine;
+      var a; var t; var c; var g; var at; var cg; var pat; var pcg; var z; var l; var temp;
+      var t; var y; var u; var o;
+      chaine=document.getElementById('chaineADN').value;
+      l=chaine.length;
+      t="A"; y="T"; u="C"; o="G";
+      a=Compte(chaine,t);
+      t=Compte(chaine,y);
+      c=Compte(chaine,u);
+      g=Compte(chaine,o);
+      at= a + t;
+      cg= c + g;
+      pat= 100 * at/l;
+      pcg= 100 * cg/l;
+      temp=" ";
+      z=document.getElementById('methodeCalcul').selectedIndex;
+      if (z==1)
+      {
+        if (l<=15) {temp=" "+Wallace(at, cg); document.getElementById('imageADN').src="images/ADNWallace.jpg";}
+        else {temp=" "+Howley(pcg, l); document.getElementById('imageADN').src="images/ADNHowley.jpg";}
+      }
+      if (z==2) {temp=" "+Wallace(at, cg);}
+      if (z==3) {temp=" "+Howley(pcg, l);}
+      if (z==0) {alert("Choisir d’abord une méthode"); temp="";}
+      document.getElementById('resultat').innerHTML="Tm =" + temp + "°C";
+    }
+    function changeImage()
+    {
+      z=document.getElementById('methodeCalcul').selectedIndex;
+      if (z==0) {document.getElementById('imageADN').src="images/ADN.jpg";}
+      if (z==2) {document.getElementById('imageADN').src="images/ADNWallace.jpg";}
+      if (z==3) {document.getElementById('imageADN').src="images/ADNHowley.jpg";}
+      if (z==1) {document.getElementById('imageADN').src="images/ADN.jpg";}
+    }
+    function monReset() {document.getElementById('methodeCalcul').selectedIndex=0;
+                         document.getElementById('imageADN').src="images/ADN.jpg";}
+  </script>
+</head>
+<body bgcolor="FFFFA6">
+<form name="monForm">
+  <h1 style="text-align:center"> Calcul du point de fusion Tm de l'ADN </h1>
+  <p> </br> Le texte.fr sur 5 lignes </p>
+  <p style="text-align:center"> <img id="imageADN" alt="image ADN" src="images/ADN.jpg"/> </p>
+  <p> </br> </br> Méthode de calcul :
+    <select id="methodeCalcul" onchange="changeImage()">
+      <option value="choisir" selected> Choisir la méthode de calcul </option>
+      <option value="modeAutomatique"> Mode automatique </option>
+      <option value="methodeWallace"> Méthode de Wallace </option>
+      <option value="methodeHowley"> Méthode de Howley </option>
+    </select>
+  </p>
+  <p> </Br> Votre chaine d'ADN : <textarea id="chaineADN"> </textarea>
+      <input type="button" value="Calculer" name="calculer" onclick="CalculTemp()"/>
+      <textarea id="resultat"> </textarea> </p>
+  <p> <input type="reset" name="effacer" value="Effacer" onclick="monReset()"/> </p>
+</form>
+</body>
+</html>

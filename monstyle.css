@@ -4,29 +4,67 @@
   --iris: #4f4789;
 	--peach: #ffb17a;
 	--ivory: #fffded;
-	--maize: #fce762; 
+	--maize: #fce762;
+
+  --black: #031936;
+  --orange: #F39B16;
+  --grey: #6C6C6C;
+  --blue: #1674F2;
+
+  --bg: #4C4D4F;
+  --articl: #3A3A3C;
 }
 
 body{
-    font-family : 'helvetica', sans-serif ;
-    background : var(--iris) ;
-    color: var(--ivory);
+  font-family : 'helvetica', sans-serif ;
+  background : var(--bg) ;
+  color: var(--grey);
+
 }
 
 header{
-    background : var(--dpurple) ;
-    padding : 10px ;
-    margin-bottom: 0.5%;
-    overflow: hidden;
+  background : var(--bg) ;
+  padding : 10px ;
+  margin-bottom: 0.5%;
+  overflow: hidden;
 }
 
-nav {
-	float: top;
- 	width: 30%;
- 	height: 100%;
-  	background: var(--peach);
-  	padding: 20px;
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center ;
+  align-content: flex-start;
+  
+  list-style: none;
+  margin: 0; 
+  background: orange;
+
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: auto;
+  padding-top: 5%;
+
 }
+
+.menu a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: black;
+  
+
+}
+
+.menu a:hover {
+  background: #1565C0;
+}
+
+
 
 footer{
     background : var(--dpurple) ;
@@ -34,47 +72,16 @@ footer{
     padding : 10px ;
     margin-top: 0.5% ;
     overflow: hidden;
+
+    order: 3;
 }
 
 h1{
-	color: var(--peach);
+	color: var(#FFFFFF);
 }
 
 h2{
     color: var(--maize) ;
-}
-
-
-ul.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: var(--peach);
-  overflow: hidden;
-  display: flex;
-  justify-content: space-around;
-
-}
-
-li {
-  
-}
-
-li a {
-  display: block;
-  color: var(--iris);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a.active {
-  background-color: var(--dpurple);
-  color: var(--peach);
-}
-
-li a:hover:not(.active) {
-  background-color: var(--maize);
 }
 
 p{
@@ -87,12 +94,18 @@ p{
 }
 
 article{
-    border: solid 1px #888888 ;
+
+    /*border: solid 1px #888888 ;*/
     padding : 10px ;
-    margin : 0.5% ;
+    /*margin : 0.5% ;*/
     display : inline-block ;
     overflow: hidden;
     vertical-align: top;
+
+    background: var(--articl);
+
+    margin-left: 15%; /* Same as the width of the sidenav */
+
 }
 
 
