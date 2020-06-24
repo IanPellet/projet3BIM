@@ -80,15 +80,14 @@ header{
 
 
 footer{
-    background : var(--dpurple) ;
-    color: var(--peach) ;
+    background : var(--articl) ;
+    color: var(--grey) ;
     padding : 10px ;
     margin-top: 0.5% ;
     overflow: hidden;
     width: 95%;
     margin-left: 5%; /* Same as the width of the menu */
 }
-
 
 h2{
   color: var(--less);
@@ -135,6 +134,6 @@ article{
   color: var(--less);
 }
 
-.fig a{
+a{
   color: var(--less);
 }
